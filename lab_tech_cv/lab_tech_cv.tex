@@ -1,0 +1,221 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[a4paper, top=1cm, bottom=1cm, left=1.2cm, right=1.2cm]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{5pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{0.5em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.2pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.2pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=2pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{David Ibarra Luna} \\[7.5pt]
+\href{https://github.com/davidil98}{\raisebox{-0.05\height}\faGithub\ david.il98} \ $|$ \ 
+\href{https://www.linkedin.com/in/david-il98}{\raisebox{-0.05\height}\faLinkedin\ david-il98} \ $|$ \ 
+%\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
+\href{mailto:david.ibarral0798@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ david.ibarral0798@gmail.com} \ $|$ \ 
+\href{tel:+34675105523}{\raisebox{-0.05\height}\faMobile \ +34.67.5105.523} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Summary}
+Industrial Chemist with a Master's in Materials Science, specialized in nanomaterials for optoelectronic water sensors applied to industrial water quality assurance. Experienced in interdisciplinary research combining materials development, contaminant analysis, and data processing with Python, aimed at solving real-world environmental challenges.
+
+%Experience
+\section{Professional Experience}
+
+\begin{joblong}{Research stay at institutes of CSIC (Barcelona, Spain)}{Sep 2024 - Dec 2024}
+\item	Developed carbon nanomaterials for the detection of nitrates in water, contributing to a project with direct applications in optoelectronic sensors.
+\item	Applied advanced material characterization (electron microscopy, spectrophotometry) and processed spectral data with Python, expediting result interpretation.
+\end{joblong}
+
+\begin{joblong}{Research Assistant - UANL, Faculty of Chemical Sciences}{Aug 2021 - Jun 2025}
+\item Synthesized diverse nanomaterials (N-GQDs, AuNPs, carbon nanotubes, etc.), specializing in N-GQDs for thesis research.
+\item Performed polymer synthesis (e.g., Nylon) and synthesized ionic liquids to support parallel research lines within the department, and employed various analytical and purification techniques, including Soxhlet distillation for extraction and gravimetric methods for molecular weight determination.
+\end{joblong}
+
+\begin{joblong}{Laboratory Analyst - UANL, Dept. of Food, Toxicology, and Drugs}{Jun 2020 - Jan 2021}
+\item Performed quantitative analysis of food samples to determine nutritional content, ensuring data accuracy through strict adherence to laboratory protocols.
+\end{joblong}
+
+\begin{joblong}{Robotics teacher (High School)}{Aug 2023 - Jun 2025}
+\item	Taught robotics and programming to high school students using the STEM-based FIRST Lego League methodology, fostering technical and problem-solving skills.
+\end{joblong}
+
+%Projects
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Spectrum Data Loader - Python Package (PyPI)} & \hfill \href{https://pypi.org/project/spectrum-data-loader/0.1.0/}{Link to Project} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{Developed and published a Python library to simplify the loading and initial processing of spectroscopy data files.}  \\
+\end{tabularx}
+  
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\textwidth}{@{}l X@{} }
+2023--2025 & M.Sc. in Materials Chemistry, Autonomous University of Nuevo Leon, (Grade: 94.4/100) \\
+2019--2022 & B.Sc. in Industrial Chemistry, Autonomous University of Nuevo Leon, (Grade: 82.7/100) \\
+\end{tabularx}
+
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\section{Publications}
+\begin{refsection}[citations.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Lab \& Software} & Nanomaterial \& Organic Synthesis, Material Characterization, Quantitative Analysis, Python (Pandas, NumPy, Matplotlib, ManimCE), Git, \LaTeX, ImageJ. \\
+\textbf{Languages} & Spanish (Native), English (Advanced), French (Beginner). \\  
+\end{tabularx}
+
+\vspace*{\fill}
+\center{\footnotesize Last updated: \today}
+
+\end{document}
