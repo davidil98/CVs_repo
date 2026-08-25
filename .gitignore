@@ -12,5 +12,12 @@
 *.bak
 *.bbl
 *.blg
-# cache files
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE files
+*.code-workspace
+.vscode/
+.idea/

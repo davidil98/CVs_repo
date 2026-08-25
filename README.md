@@ -1,30 +1,36 @@
-# 📄 Curriculum Vitae – David Ibarra Luna
+# Curriculum Vitae - David Ibarra Luna
 
-This repository contains different versions of my CV written in **LaTeX**, each tailored to highlight a specific area of my professional background.  
-The documents are organized into folders and compiled into PDFs for easy access.
+Repositorio con diferentes versiones de mi CV en LaTeX, cada una enfocada en un area profesional distinta. Los PDFs se compilan automaticamente con GitHub Actions al actualizar los archivos `.tex`.
 
-------
+## CVs disponibles
 
-## 📂 Contents
+- [General](general_cv/cv.pdf) - Resumen completo de mi formacion y experiencia.
+- [Data Science](data_science_cv/cv.pdf) - Enfocado en analisis de datos, machine learning y desarrollo en Python.
+- [Laboratorio](lab_tech_cv/cv.pdf) - Orientado a quimica industrial, ciencia de materiales y trabajo de laboratorio.
 
-- **General**  
-  A complete CV providing a broad overview of my education and experience.  
-  👉 [Download PDF](general/cv.pdf)
+## Compilacion local
 
-- **Data Science**  
-  A CV focused on data analysis, machine learning, and Python development.  
-  👉 [Download PDF](data-science/cv.pdf)
-
-- **Laboratory**  
-  A CV emphasizing my background in industrial chemistry, materials science, and laboratory work.  
-  👉 [Download PDF](laboratory/cv.pdf)
-
-------
-
-## Notes
-
-This repository is continuously updated with the latest versions of my CV. You can access the PDFs directly from GitHub or by cloning the repository:
+Cada carpeta tiene un Makefile. Para compilar localmente:
 
 ```bash
-git clone https://github.com/davidil98/CVs_repo.git
+cd general_cv  # o data_science_cv, lab_tech_cv
+make
 ```
+
+Esto genera `cv.pdf` en la carpeta correspondiente. Para limpiar archivos temporales:
+
+```bash
+make clean
+```
+
+## Estructura
+
+```
+CVs_repo/
+├── general_cv/        # CV general
+├── data_science_cv/   # CV de data science
+├── lab_tech_cv/       # CV de laboratorio
+└── .github/workflows/ # GitHub Actions para compilacion automatica
+```
+
+Base de plantilla: https://github.com/jitinnair1/autoCV - autoCV
